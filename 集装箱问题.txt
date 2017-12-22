@@ -1,0 +1,23 @@
+#include<iostream>
+#include<cstring>
+#include<algorithm>
+using namespace std;
+#define M 1000
+int n,m;
+int f[M];
+int main()
+{
+	while(cin>>n>>m)
+	{
+		int a[m];
+		int i,j;
+		for(i=0;i<m;i++)
+			cin>>a[i];
+		memset(f,0,sizeof(f));
+		for(i=0;i<m;i++)
+			for(j=n;j>=a[i];j--)
+				f[j]=max(f[j],f[j-a[i]]+a[i]);
+		cout<<n-f[n]<<endl;
+	}
+	return 0;
+ } 
