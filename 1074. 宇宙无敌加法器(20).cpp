@@ -27,7 +27,8 @@ CHEN, Yue
 415
 输出样例：
 7201
-题解：一位位加过去即可，注意边界数据超过20位和0的情况 
+题解：把三个字符串和结果串都变成一样长，不够的在前面补0，
+一位位加过去即可，注意边界数据超过20位和0的情况 
 #include <iostream>
 #include <algorithm>
 using namespace std;
@@ -35,7 +36,7 @@ int main() {
 	string s, s1, s2, ans;
 	int car = 0, i;
 	cin >> s >> s1 >> s2;
-	ans = s;
+	ans = s;// 把三个字符串和结果串都变成一样长
 	string ss1(s.size() - s1.size(),'0');
 	s1 = ss1 + s1;
 	string ss2(s.size() - s2.size(),'0');
