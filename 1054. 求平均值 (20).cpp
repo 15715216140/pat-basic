@@ -37,17 +37,19 @@ ERROR: -9999 is not a legal number
 The average of 0 numbers is Undefined
 #include <iostream>
 #include <string>
+#include <regex>
 #include <algorithm>
 using namespace std;
 bool is(string s) {
-	int cntp = 0;
-	for(int i = 0; i < s.size() ; i++) {
-		if(s[i] != '.' && s[i] != '-' && !isdigit(s[i]))	return false;
-		if(s[i] == '.')	cntp++;
-		if(cntp > 1)	return false;
-		if(s[i] == '-' && i != 0)	return false;
-		if(s[i] == '.' && !( s.size()-1 == i || i == s.size()-3 || s.size() -2 == i) ) return false;
-	}
+//	int cntp = 0;
+//	for(int i = 0; i < s.size() ; i++) {
+//		if(s[i] != '.' && s[i] != '-' && !isdigit(s[i]))	return false;
+//		if(s[i] == '.')	cntp++;
+//		if(cntp > 1)	return false;
+//		if(s[i] == '-' && i != 0)	return false;
+//		if(s[i] == '.' && !( s.size()-1 == i || i == s.size()-3 || s.size() -2 == i) ) return false;
+//	}
+	if( !regex_match(s,regex("-?\d{0,4}\.?\d{0,2}")	return false;
 	double n = stod(s); 
 	if(n < -1000 || n > 1000) return false;
 	return true;
@@ -71,7 +73,7 @@ int main() {
 	for(int i = 0; i < n; i++) {
 		string s;
 		cin >> s;
-		if(is(s)) {//is or is2 will be ok 
+		if(is(s) {//is or is2 will be ok 
 			cnt++;
 			sum += stof(s);
 		} else 	printf("ERROR: %s is not a legal number\n",s.c_str());
