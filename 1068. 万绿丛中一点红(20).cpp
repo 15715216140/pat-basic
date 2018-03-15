@@ -51,7 +51,7 @@ Not Exist
 using namespace std;
 int a[1005][1005], dat, m, n;
 int x[] = {0,0,1,1,1,-1,-1,-1} , y[] = {1,-1,0,-1,1,0,-1,1};
-bool is(int i, int j) {
+bool is(int i, int j) {//8个方向循环一遍 
 	for(int k = 0; k < 8; k++) {
 		int tx = i+x[k], ty = j+y[k]; 
 		if(tx < 1  || tx > m || ty < 1 || ty > n)	continue;
@@ -72,10 +72,10 @@ int main() {
 	}
 	for(int i = 1; i <= m; i++) {
 		for(int j = 1; j <= n; j++) {
-			if(is(i,j) && mp[a[i][j]] == 1) {
+			if(is(i,j) && mp[a[i][j]] == 1) {//is()判断色差，mp判断出现次数 
 				cnt++;
-				ansm = i;
-				ansn = j;
+				ansm = i;//行 
+				ansn = j;//列 
 				ans = a[i][j];
 			}
 		}
