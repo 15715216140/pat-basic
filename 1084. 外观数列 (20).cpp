@@ -21,7 +21,8 @@ int main() {
 		string s = "";
 		for(int i = 0; i < d.size(); i = k) {
 			for( k = i; k < d.size() && d[k] == d[i]; k++) ;
-			s = s + d[i] + (char)('0' + k - i);
+			int t = (d[i] - '0') * 10 + k - i;
+			s += to_string(t);
 		}
 		d = s;
 	}
